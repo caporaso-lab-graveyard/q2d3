@@ -15,6 +15,6 @@ setup(
     packages=find_packages(),
     scripts=glob.glob('scripts/*'),
     install_requires=['click', 'python-frontmatter', 'pyyaml',
-                      'qiime >= 2.0.0', 'tornado'],
+                      'qiime >= 2.0.0', 'tornado', 'ipymd >= 0.1.2'],
     package_data={'q2d3': ['static/*']}
 )

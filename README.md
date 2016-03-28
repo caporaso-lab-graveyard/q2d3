@@ -20,7 +20,7 @@ source activate q2d3
 ```
 
 ```bash
-pip install https://github.com/rossant/ipymd/archive/master.zip https://github.com/biocore/qiime2/archive/master.zip https://github.com/qiime2-plugins/feature-table/archive/master.zip https://github.com/qiime2-plugins/diversity/archive/master.zip https://github.com/gregcaporaso/q2ui-q2d3/archive/master.zip
+pip install https://github.com/biocore/qiime2/archive/master.zip https://github.com/qiime2-plugins/feature-table/archive/master.zip https://github.com/qiime2-plugins/diversity/archive/master.zip https://github.com/gregcaporaso/q2ui-q2d3/archive/master.zip
 ```
 
 ```bash
