@@ -20,15 +20,15 @@ source activate q2d3
 ```
 
 ```bash
-pip install https://github.com/biocore/qiime2/archive/master.zip https://github.com/qiime2-plugins/feature-table/archive/master.zip https://github.com/qiime2-plugins/diversity/archive/master.zip https://github.com/gregcaporaso/q2ui-q2d3/archive/master.zip
+pip install https://github.com/biocore/qiime2/archive/master.zip https://github.com/qiime2/q2-feature-table/archive/master.zip https://github.com/qiime2/q2-diversity/archive/master.zip https://github.com/qiime2/q2d3/archive/master.zip
 ```
 
 ```bash
-git clone https://github.com/gregcaporaso/q2ui-q2d3.git
+git clone https://github.com/qiime2/q2d3.git
 ```
 
 ```bash
-cd q2ui-q2d3/demo/analysis-dir
+cd q2d3/demo/analysis-dir
 ```
 
 ### Launch the server
@@ -44,7 +44,7 @@ To stop the server, enter control-C.
 Change to the raw data directory (you may need to first change out of the ``analysis-dir`` directory) and then launch the IPython terminal:
 
 ```bash
-cd q2ui-q2d3/demo/raw-data-dir
+cd q2d3/demo/raw-data-dir
 ipython
 ```
 
