@@ -79,7 +79,7 @@ def instantiator(port):
 
             path = str(job.uuid) + '.md'
             with open(path, mode='w') as fh:
-                fh.write(job.markdown)
+                fh.write(job.code)
 
             self.redirect('http://localhost:%d/notebooks/%s' % (port, path))
 
