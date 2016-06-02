@@ -22,10 +22,11 @@ def get_import_types():
 
 def get_artifacts(named=False):
     context_manager = Q2D3Context(os.getcwd())
-    return sorted([(context_manager.names[Artifact(fp).uuid], Artifact(fp))
-                   if named else Artifact(fp)
-                   for fp in context_manager.data.values()],
-                  key=lambda art: repr(art[1].type) if named else art.type)
+    return sorted(
+        [(context_manager.names[Artifact.load(fp).uuid], Artifact.load(fp))
+         if named else Artifact.load(fp)
+         for fp in context_manager.data.values()],
+        key=lambda art: repr(art[1].type) if named else repr(art.type))
 
 
 def get_workflows():
@@ -36,7 +37,7 @@ def get_workflows():
     for pname, plugin in pm.plugins.items():
         for wname, workflow in plugin.workflows.items():
             completed = True
-            for input_name in workflow.signature.input_artifacts:
+            for input_name in workflow.signature.inputs:
                 if not get_input_artifacts(workflow.signature, input_name,
                                            artifacts):
                     completed = False
@@ -49,9 +50,9 @@ def get_workflows():
 
 def get_input_artifacts(signature, name, artifacts):
     inputs = []
-    target_type = signature.input_artifacts[name]
+    target_type = signature.inputs[name]
     for artifact in artifacts:
-        if artifact.type < target_type:
+        if artifact.type <= target_type[0]:
             inputs.append(artifact)
     return inputs
 

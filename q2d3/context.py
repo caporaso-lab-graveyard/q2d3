@@ -14,16 +14,16 @@ from qiime.sdk import Artifact
 
 class Q2D3Context:
 
-    _file_extension = '.qtf'
+    _file_extension = '.qzf'
 
     def __init__(self, data_dir, output_names=None):
         self._data_dir = data_dir
         # uuid to filepath
         data_files = glob.glob(os.path.join(
             self._data_dir, '*%s' % self._file_extension))
-        self.data = {Artifact(fp).uuid: fp for fp in data_files}
+        self.data = {Artifact.load(fp).uuid: fp for fp in data_files}
         self.names = {
-            Artifact(fp).uuid: os.path.splitext(os.path.split(fp)[1])[0]
+            Artifact.load(fp).uuid: os.path.splitext(os.path.split(fp)[1])[0]
             for fp in data_files
         }
 
