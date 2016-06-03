@@ -18,8 +18,8 @@
         {% for workflow_name, workflow in workflows.items() %}
         <li id='{{plugin_name}}--{{workflow.id}}' class="list-group-item row" style="margin-right:0px;margin-left:0px;">
             <a href='/job/{{ plugin_name }}/{{ workflow.id }}' class="col-md-3" target="_blank">{{ workflow_name }}</a>
-            {% if workflow.signature.output_artifacts %}
-                <span class="col-md-5 pull-right">Produces: {{", ".join([repr(t) for t in workflow.signature.output_artifacts.values()])}}</span>
+            {% if workflow.signature.outputs %}
+                <span class="col-md-5 pull-right">Produces: {{", ".join([repr(t[0]) for t in workflow.signature.outputs.values()])}}</span>
             {% end %}
         </li>
         {% end %}
@@ -32,7 +32,7 @@
         {% for workflow_name, workflow in workflows.items() %}
         <li id='{{plugin_name}}--{{workflow.id}}' class="list-group-item row disabled" style="margin-right:0px;margin-left:0px;">
                 <span class="col-md-3">{{ workflow_name }}</span>
-                <span class="col-md-5 pull-right">Missing: {{  ', '.join([repr(type_) for name, type_ in workflow.signature.input_artifacts.items() if not q2d3.get_input_artifacts(workflow.signature, name, artifacts)])}}</span>
+                <span class="col-md-5 pull-right">Missing: {{  ', '.join([repr(type_[0]) for name, type_ in workflow.signature.inputs.items() if not q2d3.get_input_artifacts(workflow.signature, name, artifacts)])}}</span>
         </li>
         {% end %}
     </ul>

@@ -22,7 +22,7 @@
     <h1>{{ plugin.name + ': ' + workflow.name}}</h1>
   </div>
   <form method='POST'>
-  {% for name, type in signature.input_artifacts.items() %}
+  {% for name, type in signature.inputs.items() %}
   <fieldset class="form-group">
     <label for="in-{{ name }}">Input Artifact: {{ name }}</label>
     <select class="form-control" name="in-{{ name }}">
@@ -33,10 +33,10 @@
   </fieldset>
   {% end %}
 
-  {% for name, type in signature.input_parameters.items() %}
+  {% for name, type in signature.parameters.items() %}
   <fieldset class="form-group">
     <label for="param-{{ name }}">Input Parameter: {{ name }}</label>
-    <input type="text-field" class="form-control" name="param-{{ name }}" placeholder="{{ repr(type) }}">
+    <input type="text-field" class="form-control" name="param-{{ name }}" placeholder="{{ repr(type[0]) }}">
   </fieldset>
   {% end %}
 
@@ -44,10 +44,10 @@
       <br/>
         <br/>
 
-  {% for name, type in signature.output_artifacts.items() %}
+  {% for name, type in signature.outputs.items() %}
   <fieldset class="form-group">
     <label for="out-{{ name }}">Output Name: {{ name }}</label>
-    <input type="text-field" class="form-control" name="out-{{ name }}" placeholder="{{ repr(type) }}">
+    <input type="text-field" class="form-control" name="out-{{ name }}" placeholder="{{ repr(type[0]) }}">
   </fieldset>
   {% end %}
 
