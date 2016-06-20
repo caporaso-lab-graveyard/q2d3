@@ -72,7 +72,7 @@ def instantiator(port):
             output_artifact_fps = {}
             for name, value in output_names.items():
                 output_artifact_fps[name] = os.path.join(
-                    context_manager._data_dir, value + '.qzf')
+                    context_manager._data_dir, value + '.qza')
 
             job = workflow.to_markdown(input_artifact_fps, input_params,
                                        output_artifact_fps)

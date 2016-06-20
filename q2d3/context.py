@@ -14,7 +14,7 @@ from qiime.sdk import Artifact
 
 class Q2D3Context:
 
-    _file_extension = '.qzf'
+    _file_extension = '.qza'
 
     def __init__(self, data_dir, output_names=None):
         self._data_dir = data_dir
